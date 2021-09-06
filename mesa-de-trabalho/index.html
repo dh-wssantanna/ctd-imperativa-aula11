@@ -42,7 +42,6 @@
                 duracao: '2h 14min',
                 nota: 7.4
             },
-            ,
             {
                 nome: 'Um Lugar Silencioso: Parte II',
                 ano: 2020,
@@ -60,15 +59,17 @@
                 listaDeFilmes[indice].atributoDoObjeto.
 
             */
-            console.log('Título:', listaDeFilmes[0].nome);
-            console.log('Ano:', listaDeFilmes[0].ano);
-            console.log('Classificação:', listaDeFilmes[0].classificacao);
-            console.log('Duração:', listaDeFilmes[0].duracao);
-            console.log('Nota:', listaDeFilmes[0].nota);
-            console.log('-----------------------------');
+            for(var indiceDoFilme = 0; indiceDoFilme < listaDeFilmes.length; indiceDoFilme++) {
+                console.log('Título:', listaDeFilmes[indiceDoFilme].nome);
+                console.log('Ano:', listaDeFilmes[indiceDoFilme].ano);
+                console.log('Classificação:', listaDeFilmes[indiceDoFilme].classificacao);
+                console.log('Duração:', listaDeFilmes[indiceDoFilme].duracao);
+                console.log('Nota:', listaDeFilmes[indiceDoFilme].nota);
+                console.log('-----------------------------');
+           }
         }
 
-        listarTodosOsFilmes();
+        //listarTodosOsFilmes();
 
         /* 
             Atividade II: Quiz
@@ -104,18 +105,29 @@
                 Corrija a função nesse trecho para que a próxima pergunta seja executada.
                 Sinta-se livre para apagar ou modificar qualquer instruções que não se encaixe em seu algorítimo.
             */
-            var enunciadoDaQuestao = listaDePerguntasERespostas[0].enunciadoDaQuestao;
-            var respostaDoUsuario = prompt(enunciadoDaQuestao);
-            var respostaCorreta = listaDePerguntasERespostas[0].resposta;
+           var indiceDaPergunta = 0;
+           var fimDoQuiz = false;
+           var numeroDeQuestoes = listaDePerguntasERespostas.length;
 
-            if(respostaDoUsuario.toLowerCase() == respostaCorreta.toLowerCase()) {
-                alert('Parabéns, você acertou.');
-                iniciarQuiz();
-            } else {
-                // A repetição deve ser encerrada se o usuário errar. 
-                alert('Você errou! Por favor, comece novamente.');
+            while(!fimDoQuiz) {
+                
+                var enunciadoDaQuestao = listaDePerguntasERespostas[indiceDaPergunta].enunciadoDaQuestao;
+                var respostaDoUsuario = prompt(enunciadoDaQuestao);
+                var respostaCorreta = listaDePerguntasERespostas[indiceDaPergunta].resposta;
+                var naoErrouAQuestao = respostaDoUsuario == respostaCorreta;
+                var naoTerminaramAsPesguntas = indiceDaPergunta < numeroDeQuestoes;
+                
+                if(naoTerminaramAsPesguntas && naoErrouAQuestao) {
+                    alert('Parabéns, passou para a próxima fase.');
+
+                }  else {
+                    alert('O jogo acabou para você! Obrigado pela participação.')
+                    fimDoQuiz = true;
+                }
+
+                indiceDaPergunta++;
+
             }
-            // Por fim, quando todas as questões forem respondidas, o usuário de receber a mensagem 'Parabéns, você acertou doas as questões.'
         }
 
         iniciarQuiz();

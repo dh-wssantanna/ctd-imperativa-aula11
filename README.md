@@ -15,3 +15,5 @@
 5. Submeta um `pull request` para avaliação do professor.
 
 **Obs.:** Comentários, avaliação do código e dicas serão registradas nesse `pull request`.
+
+<!-- Integrantes: Bruno Beneventi, Kevin Miranda, Bianca Moraes, Vando Borges, Lilian Melim, Tatiana Almeida, Raimundo Nonato Batista Neto  -->

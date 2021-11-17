@@ -59,12 +59,15 @@
                 listaDeFilmes[indice].atributoDoObjeto.
 
             */
-            console.log('Título:', listaDeFilmes[0].nome);
-            console.log('Ano:', listaDeFilmes[0].ano);
-            console.log('Classificação:', listaDeFilmes[0].classificacao);
-            console.log('Duração:', listaDeFilmes[0].duracao);
-            console.log('Nota:', listaDeFilmes[0].nota);
-            console.log('-----------------------------');
+            for (var i= 0; i < listaDeFilmes.length; i++) {       
+           
+                console.log('Título:', listaDeFilmes[i].nome);
+                console.log('Ano:', listaDeFilmes[i].ano);
+                console.log('Classificação:', listaDeFilmes[i].classificacao);
+                console.log('Duração:', listaDeFilmes[i].duracao);
+                console.log('Nota:', listaDeFilmes[i].nota);
+                console.log('-----------------------------');
+            }
         }
 
         listarTodosOsFilmes();
@@ -103,22 +106,30 @@
                 Corrija a função nesse trecho para que a próxima pergunta seja executada.
                 Sinta-se livre para apagar ou modificar qualquer instruções que não se encaixe em seu algorítimo.
             */
-            var enunciadoDaQuestao = listaDePerguntasERespostas[0].enunciadoDaQuestao;
+           var index = 0;
+
+            while (index < listaDePerguntasERespostas.length) {
+            var enunciadoDaQuestao = listaDePerguntasERespostas[index].enunciadoDaQuestao;
             var respostaDoUsuario = prompt(enunciadoDaQuestao);
-            var respostaCorreta = listaDePerguntasERespostas[0].resposta;
+            var respostaCorreta = listaDePerguntasERespostas[index].resposta;
 
             if(respostaDoUsuario.toLowerCase() == respostaCorreta.toLowerCase()) {
+                if (index + 1 != listaDePerguntasERespostas.length) {            
                 alert('Parabéns, você acertou.');
-                iniciarQuiz();
+                }
+                // iniciarQuiz();
+                index++;
             } else {
                 // A repetição deve ser encerrada se o usuário errar. 
                 alert('Você errou! Por favor, comece novamente.');
+                index = 0;
             }
+        }
+            alert ('Parabéns, você acertou todas as questões.')
             // Por fim, quando todas as questões forem respondidas, o usuário de receber a mensagem 'Parabéns, você acertou doas as questões.'
         }
 
         iniciarQuiz();
-
         /*
             Documentação dos recursos abordado em aula:
             * for(valorInicial; condicao; modificador) {} https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/for
